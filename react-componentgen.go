@@ -14,6 +14,7 @@ func main() {
 		TemplateFile             string
 		TemplateReplacementToken string
 		OutDirectory             string
+		OutFileExtension         string
 	}
 
 	// Load config
@@ -57,7 +58,7 @@ func main() {
 	s := strings.ReplaceAll(componentTemplate, configuration.TemplateReplacementToken, componentName)
 
 	// output to file in directory structure
-	outputFile, err := os.Create(configuration.OutDirectory + componentName + ".tsx")
+	outputFile, err := os.Create(configuration.OutDirectory + componentName + "." + configuration.OutFileExtension)
 	if err == nil {
 		fmt.Println("Writing file...")
 		outputFile.Write([]byte(s))
@@ -67,6 +68,6 @@ func main() {
 		return
 	}
 
-	fmt.Printf("%s written.", configuration.OutDirectory+componentName+".tsx")
+	fmt.Printf("%s written.", configuration.OutDirectory+componentName+"."+configuration.OutFileExtension)
 
 }
