@@ -1,0 +1,5 @@
+{
+    "TemplateFile": "ComponentTemplate.tsx",
+    "TemplateReplacementToken": "ComponentTemplate",
+    "OutDirectory": "src/components/"
+}
